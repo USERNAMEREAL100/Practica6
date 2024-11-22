@@ -1,0 +1,46 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Znacheniya {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        System.out.print("Введіть розмір масиву: ");
+        int arraySize = scanner.nextInt();
+
+        int[] numbers = new int[arraySize];
+        for (int i = 0; i < arraySize; i++) {
+            numbers[i] = random.nextInt(100); // Числа від 0 до 99
+        }
+
+        System.out.println("Згенерований масив:");
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        System.out.print("Введіть значення, яке хочете знайти пжлст: ");
+        int targetValue = scanner.nextInt();
+
+        System.out.print("Введіть нове значення для заміни: ");
+        int newValue = scanner.nextInt();
+
+        boolean found = false;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] == targetValue) {
+                numbers[i] = newValue;
+                found = true;
+            }
+        }
+
+        if (found) {
+            System.out.println("Новий масив:");
+            for (int num : numbers) {
+                System.out.print(num + " ");
+            }
+        } else {
+            System.out.println("Значення " + targetValue + " не знайдено в масиві.");
+        }
+    }
+}
